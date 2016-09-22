@@ -1,0 +1,16 @@
+<!--<link rel="stylesheet" href="<?php echo base_url('asset/themes/base/jquery.ui.all.css')?>">
+		<script src="<?php echo base_url('asset/js/jquery-1.7.2.js')?>"></script>
+		<script src="<?php echo base_url('asset/ui/jquery.ui.core.js')?>"></script>
+		<script src="<?php echo base_url('asset/ui/jquery.ui.widget.js')?>"></script>
+		<script src="<?php echo base_url('asset/ui/jquery.ui.datepicker.js')?>"></script>
+		<script>
+			$(function() {
+				$("#datepicker").datepicker({
+				changeMonth: true,
+				changeYear: true	
+			});
+		});		
+	    </script>
+        <script>
+       		tinymce.init({selector:'textarea'});
+        </script>-->
