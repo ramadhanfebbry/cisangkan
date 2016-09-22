@@ -53,7 +53,7 @@ class Barang extends CI_Controller{
 				'unit' => $this->input->post('unit'),
 				'warna' => $this->input->post('warna'),
 				'berat' => $this->input->post('berat'),
-				'kategori' => $this->input->post('kategori')
+				'warehouse' => $this->input->post('warehouse')
             );
 			$data['id_barang'] = $this->m_barang->get_id_barang($data['id_kategori']);
 			
@@ -64,8 +64,8 @@ class Barang extends CI_Controller{
 			 $data['kategori'] = $this->m_barang->get_barang();
 			 
 			$data['message']="<div class='alert alert-success'>Data berhasil ditambah</div>";
-            $this->load->view('gudang/barang/tambah_barang',$data);
-            
+            // $this->load->view('gudang/barang/tambah_barang',$data);
+redirect ('gudang/barang/tampilkan_barang');            
         }else
         {    
             //fail validation
