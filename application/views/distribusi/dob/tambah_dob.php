@@ -94,4 +94,15 @@
    </div>
 </center>
 </div>
+<script>
+     $(function () {
+      
+      $.get('<?php echo site_url('distribusi/dob/getPlv'); ?>', function(data){
+        
+          $("input[name='id_plv']").autocomplete({ source:data });
+      },'json');
+        
+        });
+    </script>
+
 </html>

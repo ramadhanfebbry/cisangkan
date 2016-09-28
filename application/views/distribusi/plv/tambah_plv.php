@@ -51,13 +51,77 @@
 			</div>
 		</div>
          
-        <div class="form-group">
+      <div class="form-group">
         <label class="col-lg-2 control-label">Kode JRP</label>
 			<div class="col-lg-3">
-				<input name="id_jrp" type="hidden"> 
-        <input name="id_jrp_text" type="text"  class="form-control" placeholder="Masukkan kode Jrp" > 
+				<input name="id_jrp" type="text"  class="form-control" placeholder="Masukkan kode Jrp" > 
 			</div>
 		</div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Ship Date</label>
+      <div class="col-lg-3">
+        <input id="ship_date" type="text"  class="form-control" readonly> 
+      </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Sales Order</label>
+      <div class="col-lg-3">
+        <input id="sales_order" type="text"  class="form-control" readonly> 
+      </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Delivery Name</label>
+      <div class="col-lg-3">
+        <input id="delivery_name" type="text"  class="form-control" readonly> 
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Delivery City</label>
+      <div class="col-lg-3">
+        <input id="delivery_city" type="text"  class="form-control" readonly> 
+      </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Delivery Address</label>
+      <div class="col-lg-3">
+        <input id="delivery_address" type="text"  class="form-control" readonly> 
+      </div>
+    </div>
+
+
+   <!--  <div class="form-group">
+        <label class="col-lg-2 control-label">Kode Barang</label>
+      <div class="col-lg-3">
+        <input id="id_barang" type="text"  class="form-control" readonly> 
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Jenis Barang</label>
+      <div class="col-lg-3">
+        <input id="type" type="text"  class="form-control" readonly> 
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Warna Barang</label>
+      <div class="col-lg-3">
+        <input id="warna" type="text"  class="form-control" readonly> 
+      </div>
+    </div> -->
+    
+<div class="form-group">
+        <label class="col-lg-2 control-label">Quantity</label>
+      <div class="col-lg-3">
+        <input id="quantity" type="text"  class="form-control" readonly> 
+      </div>
+    </div>
+
+        
+    
 		
 		<div class="form-group">
 		<label class="col-lg-2 control-label">Kode Car</label>
@@ -99,38 +163,42 @@
 </center>
 </div>
 <script>
-     $(function () {
-       var projects = [
-      {
-        value: "jquery",
-        label: "jQuery",
-        desc: "the write less, do more, JavaScript library",
-        icon: "jquery_32x32.png"
-      },
-      {
-        value: "jquery-ui",
-        label: "jQuery UI",
-        desc: "the official user interface library for jQuery",
-        icon: "jqueryui_32x32.png"
-      },
-      {
-        value: "sizzlejs",
-        label: "Sizzle JS",
-        desc: "a pure-JavaScript CSS selector engine",
-        icon: "sizzlejs_32x32.png"
-      }
-    ];
-      $.get('<?php echo site_url('distribusi/dob/getJrp'); ?>', function(data){
-        // window.ex = data;
-      $("input[name='id_jrp_text']").autocomplete({
+  $(function () {       
+    $.get('<?php echo site_url('distribusi/dob/getJrp'); ?>', function(data){
+        window.ex = data;
+      $("input[name='id_jrp']").autocomplete({
       minLength: 0,
       source: JSON.parse(data),
       focus: function( event, ui ) {
-        $("input[name='id_jrp_text']").val( ui.item.label );
+        $("#ship_date").val( ui.item.d.ship_date );
+        $("#sales_order").val( ui.item.d.sales_order );
+        $("#delivery_name").val( ui.item.d.delivery_name );
+        $("#delivery_city").val( ui.item.d.delivery_city );
+        $("#delivery_address").val( ui.item.d.delivery_address );
+        $("#id_barang").val( ui.item.d.id_barang );
+        $("#type").val( ui.item.d.type );
+        $("#warna").val( ui.item.d.warna );
+        $("#quantity").val( ui.item.d.quantity );
+        $("#delivery_remender").val( ui.item.d.delivery_remender );
+        $("#quantity_confirm").val( ui.item.d.quantity_confirm );
+        $("#tonase").val( ui.item.d.tonase );
+
         return false;
       },
       select: function( event, ui ) {
-        $("input[name='id_jrp_text']").val( ui.item.label );
+         $("#ship_date").val( ui.item.d.ship_date );
+        $("#sales_order").val( ui.item.d.sales_order );
+        $("#delivery_name").val( ui.item.d.delivery_name );
+        $("#delivery_city").val( ui.item.d.delivery_city );
+        $("#delivery_address").val( ui.item.d.delivery_address );
+        $("#id_barang").val( ui.item.d.id_barang );
+        $("#type").val( ui.item.d.type );
+        $("#warna").val( ui.item.d.warna );
+        $("#quantity").val( ui.item.d.quantity );
+        $("#delivery_remender").val( ui.item.d.delivery_remender );
+        $("#quantity_confirm").val( ui.item.d.quantity_confirm );
+        $("#tonase").val( ui.item.d.tonase );
+
         $("input[name='id_jrp']").val( ui.item.value );
         
         return false;
@@ -142,8 +210,15 @@
         .appendTo( ul );
     };
         
-        });
-      });
-    </script>
+    });
+
+
+      $.get('<?php echo site_url('distribusi/kendaraan/getKendaraan'); ?>', function(data){
+        
+          $("input[name='id_kendaraan']").autocomplete({ source:data });
+      },'json');
+        
+  });
+</script>
   
 </html>

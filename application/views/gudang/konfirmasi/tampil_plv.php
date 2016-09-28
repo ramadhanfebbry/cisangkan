@@ -25,7 +25,7 @@
 	<center><h3><b>Data Packing List<b><h3></center>
 </legend>
 <div class="nav navbar-nav navbar-right">
-    <form class="navbar-form navbar-left" role="search" action="<?php echo site_url('distribusi/plv/cari');?>" method="post">
+    <form class="navbar-form navbar-left" role="search" action="<?php echo site_url('gudang/konfirmasi/cari');?>" method="get">
         <div class="form-group">
            
             <input type="text" class="form-control" placeholder="Cari ID Plv " name="cari">

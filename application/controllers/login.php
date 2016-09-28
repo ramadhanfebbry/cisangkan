@@ -42,7 +42,7 @@ class Login extends CI_Controller{
 				} elseif ($this->session->userdata('level')=='bag gudang') {
                     redirect('gudang/home');
 				} elseif ($this->session->userdata('level')=='kabag distribusi') {
-                    redirect('kabag/home');
+                    redirect('distribusi/home');
 				 }
             } else{
               $this->session->set_flashdata('pesan','<div class="alert alert-danger text-center">Username dan Password tidak sesuai</div>');

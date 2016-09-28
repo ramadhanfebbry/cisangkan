@@ -24,7 +24,7 @@
 <div class="navbar navbar-default">
 	<div id="navbar" class="navbar-collapse collapse"> 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<?php echo site_url('distribusi/home');?>"><b>Home</b></a></li></b> 
+              <li class="active"><a href="<?php echo site_url('gudang/home');?>"><b>Home</b></a></li></b> 
             </ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class= "dropdown">
@@ -80,7 +80,7 @@
                 <label for="unit" class="control-label">Unit</label>
            </div>
             <div class="col-lg-6 col-sm-6">
-                 <select id="unit" name="unit"  type="text" class="form-control"value="<?php echo $tb_barang['unit'];?>">
+                 <select id="unit" name="unit"  type="text" class="form-control" value="<?php echo $tb_barang['unit'];?>">
 					<option value="<?php echo $tb_barang['unit'];?>"> </option>
 					<option value="pcs">Pcs</option>
 					<option value="dus">Dus</option>
@@ -102,7 +102,7 @@
                 <label for="berat" class="control-label">Berat</label>
               </div>
               <div class="col-lg-6 ">
-                <input  name="berat"  type="text" class="form-control" value="<?php echo $tb_barang['type'];?>">
+                <input  name="berat"  type="number" class="form-control" value="<?php echo $tb_barang['berat'];?>">
               </div>
             </div>
             

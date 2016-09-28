@@ -124,18 +124,20 @@ class Plv extends CI_Controller{
     }
  
    function cari(){
-       $cari=$this->input->post('cari');
+       $cari=$this->input->get('cari');
         $cek=$this->m_plv->cari($cari);
         if($cek->num_rows()>0){
-             $data['message']="";
-             $data['tb_plv']=$cek->result();
-			 $data['count'] = $this->m_plv->getAllplv_count(); 
-            $this->load->view('distribusi/cari_plv',$data);
+      log_message('error', 'DATA');
+          $data['message']="";
+          $data['tb_plv']=$cek;
+			    $data['count'] = $this->m_plv->getAllplv_count(); 
+          $this->load->view('distribusi/plv/tampil_plv',$data);
         }else{
-            $data['message']="<div class='alert alert-danger'>Data tidak ditemukan</div>";
-			 $data['tb_plv']=$cek->result();
-			 $data['count'] = $this->m_plv->getAllplv_count(); 
-            $this->load->view('distribusi/plv/cari_plv',$data);
+          log_message('error', "NO DATA : ". $this->m_plv->getAllplv_count());
+          $data['message']="<div class='alert alert-danger'>Data tidak ditemukan</div>";
+  			  $data['tb_plv']=$cek;
+  			  $data['count'] = $this->m_plv->getAllplv_count(); 
+          $this->load->view('distribusi/plv/tampil_plv',$data);
         }
     }
  

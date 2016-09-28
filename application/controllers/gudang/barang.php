@@ -36,6 +36,13 @@ class Barang extends CI_Controller{
   
  }
  
+ public function cari(){
+
+  $this->data['barang'] = $this->m_barang->cari($this->input->get('cari'));
+  $this->data['message']="";
+  $this->load->view('gudang/barang/tampil_barang', $this->data);
+ }
+
  public function tampilkan_barang(){
 	$this->data['barang'] = $this->m_barang->baca_barang();
 	$this->load->view('gudang/barang/tampil_barang', $this->data);
@@ -53,9 +60,10 @@ class Barang extends CI_Controller{
 				'unit' => $this->input->post('unit'),
 				'warna' => $this->input->post('warna'),
 				'berat' => $this->input->post('berat'),
-				'warehouse' => $this->input->post('warehouse')
+				'warehouse' => $this->input->post('warehouse'),
+        'id_barang' => $this->m_barang->get_id_barang($this->input->post('kategori'))
             );
-			$data['id_barang'] = $this->m_barang->get_id_barang($data['id_kategori']);
+			// $data['id_barang'] = $this->m_barang->get_id_barang($data['id_kategori']);
 			
             //insert the form data into database
             $this->db->insert('tb_barang', $data); 
@@ -108,12 +116,12 @@ redirect ('gudang/barang/tampilkan_barang');
 		$data['kategori'] = $this->m_barang->get_barang();
           $data['tb_barang']=$this->m_barang->cek($id)->row_array();
 		$data['message']="<div class='alert alert-success'>Data berhasil diupdate</div>";
-          $this->load->view('gudang/pasien/edit_barang',$data);
+          $this->load->view('gudang/barang/edit_barang',$data);
       }else{
 		    $data['kategori'] = $this->m_barang->get_barang();
         $data['tb_barang'] = $this->m_barang->cek($id)->row_array();
     		$data['message']="";
-        $this->load->view('gudang/pasien/edit_barang',$data);
+        $this->load->view('gudang/barang/edit_barang',$data);
       }
     }
 	public function hapus_barang($id_barang){   

@@ -107,6 +107,18 @@ class Kendaraan extends CI_Controller{
   redirect('distribusi/kendaraan');
  }
  
+  public function getKendaraan()
+  {
+            
+      $query = $this->m_kendaraan->get_allKendaraan();
+      $plvs   =  array();
+      foreach ($query as $d) {
+        array_push($plvs, $d->id_kendaraan);          
+      }
+      echo json_encode($plvs); 
+  }
+
+  
    function cari(){
        $cari=$this->input->post('cari');
         $cek=$this->m_kendaraan->cari($cari);

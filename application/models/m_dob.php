@@ -44,8 +44,8 @@ function cek($id_do){
  
   function cari($cari){
         $this->db->like('id_do',$cari);
-		$this->db->or_like("delivery_name",$cari);
-		$this->db->or_like("delivery_city",$cari);
+		$this->db->or_like("date_do",$cari);
+		$this->db->or_like("id_plv",$cari);
 		
         return $this->db->get('tb_do');
     }

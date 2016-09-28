@@ -8,28 +8,8 @@
     <link href="<?php echo base_url('asset/css/bootstrap.min.css');?>" rel="stylesheet">
 			<script src="<?php echo base_url('asset/js/jquery.js');?>"></script>
 			<script src="<?php echo base_url('asset/js/bootstrap.js');?>"></script>
-	<!--<link rel="stylesheet" href="<?php echo base_url('asset/js/jquery-ui.css');?>" />
-			<script src="<?php echo base_url('asset/js/bootstrap.js');?>"></script>
-			<script src="<? echo  base_url('asset/js/jquery-1.9.1.js');?>" type="text/javascript"></script>
-			<script src="<? echo base_url('asset/js/jquery-ui.min.js');?>" type="text/javascript"></script>
-			<script src="<? echo base_url('asset/js/jquery-ui.js');?>" type="text/javascript"></script>-->
-			
-			<script>
-			$(document).ready(function(){
-			$("#kode").autocomplete({ 
-				source:'<?php echo site_url('ppic/jrp/barang'); ?>',
-				select:function(event, ui){
-					$('#type').val(ui.item.type);
-					$('#unit').val(ui.item.unit);
-					$('#warna').val(ui.item.warna;
-					$('#berat').val(ui.item.berat);
-					$('#warehouse').val(ui.item.warehouse);
-				   }
-            });
-			
-        });
-    </script>
-		
+	    <link rel="stylesheet" href="<?php echo base_url('asset/js/jquery-ui.css');?>">					
+			<script src="<? echo base_url('asset/js/jquery-ui.min.js');?>" type="text/javascript"></script>			
 	
 </head>
 <img src="<?php echo base_url('asset/img/logo2.jpg');?>" height="145px" width="40%">
@@ -60,50 +40,58 @@
        <div class="form-group">
 		  <label class="col-lg-2 control-label">kode JRP</label>
              <div class="col-lg-3">
-               <input name="id_jrp" type="text"  value="<?php echo $id_jrp;?>"class="form-control" readonly >
+               <input name="id_jrp" type="text"  value="<?php echo $id_jrp;?>" class="form-control" readonly >
             </div>
 		</div>
 		
 		<div class="form-group">
         <label class="col-lg-2 control-label">Ship Date</label>
         <div class="col-lg-3">
-            <input name="ship_date" type="date"  class="form-control" placeholder="yyyy/mm/dd">
+            <input name="ship_date" type="date"  class="form-control" placeholder="yyyy/mm/dd" value="<?php echo $ship_date;?>">
         </div>
 		</div>
          
         <div class="form-group">
         <label class="col-lg-2 control-label">Sales Order</label>
-        <div class="col-lg-3">
-             <input type="radio" name="sales_order" value="Soba"> Sales Order Bandung
-			<input type="radio" name="sales_order" value="Soja"> Sales Order Jakarta
-        </div>
-		</div>
+             <div class="col-lg-3">
+            <input type="radio" name="sales_order" value="soba" required 
+        <?php if ($sales_order == 'soba') {
+          echo 'checked';
+        }
+      ?>>Sales Order Bandung</input>
+      
+            <input type="radio" name="sales_order" value="soja" required 
+        <?php if ($sales_order == 'soja') {
+                    echo 'checked';
+                }
+            ?>>Sales Order Jakarta</input>          
+    </div>		</div>
 		
 		<div class="form-group">
         <label class="col-lg-2 control-label">Delivery Name</label>
         <div class="col-lg-3">
-            <input name="delivery_name" type="text" class="form-control" placeholder="Delivery Name" >
+            <input name="delivery_name" type="text" class="form-control" placeholder="Delivery Name" value="<?php echo $delivery_name;?>">
         </div>
 		</div>
 		
 		<div class="form-group">
         <label class="col-lg-2 control-label">Delivery City</label>
         <div class="col-lg-3">
-              <input name="delivery_city" type="text" class="form-control"placeholder="Delivery City" >
+              <input name="delivery_city" type="text" class="form-control" placeholder="Delivery City" value="<?php echo $delivery_city;?>">
         </div>
 		</div>
 		
 		<div class="form-group">
         <label class="col-lg-2 control-label">Delivery Address</label>
         <div class="col-lg-3">
-              <textarea name="delivery_address" type="text" class="form-control" >  </textarea>
+              <textarea name="delivery_address" type="text" class="form-control" ><?php echo $delivery_address;?> </textarea>
         </div>
 		</div>	
 		
 		<div class="form-group">
         <label class="col-lg-2 control-label">Kode Barang</label>
         <div class="col-lg-3">
-			   <input type="text" name="id_barang" id="kode" value="" class="form-control" placeholder="Masukkan id barang">
+			   <input type="text" name="id_barang" id="kode" value="<?php echo $id_barang;?>" class="form-control" placeholder="Masukkan id barang">
         </div>
 		</div>	
 		
@@ -124,7 +112,7 @@
 		<div class="form-group">
         <label class="col-lg-2 control-label">Quantity</label>
         <div class="col-lg-3">
-              <input name="quantity" type="text" class="form-control" placeholder="Quantity">
+              <input name="quantity" type="number" class="form-control" placeholder="Quantity" value="<?php echo $quantity;?>">
         </div>
 		</div>	
 		
@@ -153,5 +141,22 @@
    </div>
 </center>
 </div>
+
+
+<script>
+      $(document).ready(function(){
+      $("#kode").autocomplete({ 
+        source:'<?php echo site_url('ppic/jrp/barang'); ?>',
+        select:function(event, ui){
+          $('#type').val(ui.item.type);
+          $('#unit').val(ui.item.unit);
+          $('#warna').val(ui.item.warna);
+          $('#berat').val(ui.item.berat);
+          $('#warehouse').val(ui.item.warehouse);
+           }
+            });
+      
+        });
+    </script>  
   
 </html>

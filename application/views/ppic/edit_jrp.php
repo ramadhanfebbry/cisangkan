@@ -8,6 +8,8 @@
     <link href="<?php echo base_url('asset/css/bootstrap.min.css');?>" rel="stylesheet">
             <script src="<?php echo base_url('asset/js/jquery.js');?>"></script>
             <script src="<?php echo base_url('asset/js/bootstrap.js');?>"></script>
+        <link rel="stylesheet" href="<?php echo base_url('asset/js/jquery-ui.css');?>">                 
+            <script src="<? echo base_url('asset/js/jquery-ui.min.js');?>" type="text/javascript"></script>         
             
 </head>
 
@@ -53,13 +55,13 @@
 	  <label class="col-lg-2 control-label">Sales Order</label>
 	   <div class="col-lg-3">
             <input type="radio" name="sales_order" value="soba" required 
-				<?php if ($tb_jrp['sales_order'] == 'Soba') {
+				<?php if ($tb_jrp['sales_order'] == 'soba') {
 					echo 'checked';
 				}
 			?>>Sales Order Bandung</input>
 			
             <input type="radio" name="sales_order" value="soja" required 
-				<?php if ($tb_jrp['sales_order'] == 'Soja') {
+				<?php if ($tb_jrp['sales_order'] == 'soja') {
                     echo 'checked';
                 }
             ?>>Sales Order Jakarta</input>          
@@ -87,27 +89,27 @@
 	<div class="form-group">
         <label class="col-lg-2 control-label">Kode Barang</label>
         <div class="col-lg-3">
-            <input type="text" name="id_barang" class="form-control" value="<?php echo $tb_jrp['id_barang'];?>">
+            <input type="text" name="id_barang" class="form-control" value="<?php echo $tb_jrp['id_barang']; ?>" id="kode">
         </div>
     </div>
 	<div class="form-group">
         <label class="col-lg-2 control-label">Type</label>
         <div class="col-lg-3">
-            <type="type" name="type" class="form-control" value="<?php echo $tb_jrp['type'];?>" readonly> 
+            <input type="text" name="type" class="form-control" value="<?php echo $tb_jrp['type'];?>" readonly id="type"> 
     </div>
 	</div>
 	
 	<div class="form-group">
         <label class="col-lg-2 control-label">Warna</label>
         <div class="col-lg-3">
-            <type="warna" name="type" class="form-control" value="<?php echo $tb_jrp['warna'];?>" readonly> 
+            <input type="text" name="warna" class="form-control" value="<?php echo $tb_jrp['warna'];?>" readonly id="warna"> 
         </div>
     </div>
 	
 	<div class="form-group">
         <label class="col-lg-2 control-label">Quantity</label>
         <div class="col-lg-3">
-            <input type="text" name="quantity" class="form-control" value="<?php echo $tb_jrp['quantity'];?>">
+            <input input type="text" name="quantity" class="form-control" value="<?php echo $tb_jrp['quantity'];?>">
         </div>
     </div>
 	
@@ -126,4 +128,22 @@
 		</center>
 	</div>
 </form>
+
+
+<script>
+      $(document).ready(function(){
+      $("#kode").autocomplete({ 
+        source:'<?php echo site_url('ppic/jrp/barang'); ?>',
+        select:function(event, ui){
+          $('#type').val(ui.item.type);
+          
+          $('#warna').val(ui.item.warna);
+          // $('#berat').val(ui.item.berat);
+          // $('#warehouse').val(ui.item.warehouse);
+           }
+            });
+      
+        });
+    </script>  
+  
 </html>

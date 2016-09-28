@@ -109,7 +109,7 @@
                 <label for="berat" class="control-label">Berat</label>
               </div>
               <div class="col-lg-6 col-sm-6">
-                <input id="berat" name="berat" placeholder="berat barang" type="text" class="form-control" />
+                <input id="berat" name="berat" placeholder="berat barang" type="number" class="form-control" />
               </div>
             </div>
             

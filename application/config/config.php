@@ -183,7 +183,7 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+// $config['log_threshold'] = 0;
 
 /*
 |--------------------------------------------------------------------------
@@ -376,6 +376,9 @@ $config['proxy_ips'] = '';
 | di application/core.
 |
 */
+
+$config['log_threshold'] = 1;
+
 function __autoload($class)
 {
     if(strpos($class, 'CI_') !== 0)

@@ -91,18 +91,19 @@ class Rdo extends CI_Controller{
  }
  
    function cari(){
-       $cari=$this->input->post('cari');
-        $cek=$this->m_rdo>cari($cari);
+       $cari=$this->input->get('cari');
+        $cek=$this->m_rdo->cari($cari);
         if($cek->num_rows()>0){
              $data['message']="";
-             $data['tb_rdo']=$cek->result();
-			 $data['count'] = $this->m_rdo->getAllrdo_count(); 
-            $this->load->view('distribusi/cari_rdo',$data);
+             $data['tb_rdo']=$cek;
+			 $data['count'] = $this->m_rdo->getAllrdo_count();
+
+            $this->load->view('distribusi/rdo/tampil_rdo',$data);
         }else{
             $data['message']="<div class='alert alert-danger'>Data tidak ditemukan</div>";
-			 $data['tb_rdo']=$cek->result();
+			 $data['tb_rdo']=$cek;
 			 $data['count'] = $this->m_rdo->getAllrdo_count(); 
-            $this->load->view('distribusi/cari_rdo',$data);
+            $this->load->view('distribusi/rdo/tampil_rdo',$data);
         }
     }
  

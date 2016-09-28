@@ -64,9 +64,9 @@
 			<th><center>Type</center></th>
 			<th><center>Color</center></th>
 			<th><center>Quantity</center></th>
-            <!--<th><center>Delivery Remender</center></th>
+            <th><center>Delivery Remender</center></th>
 			<th><center>Delivery Now</center></th>
-			<th><center>Tonase</center></th>-->
+			<th><center>Tonase</center></th>
             <th colspan ="2"><center>Aksi</center></th>
 		</thead>
 		
@@ -87,9 +87,9 @@
 		<td><center><?php echo ucwords ($row->type);?></center></td>
 		<td><center><?php echo ucwords ($row->warna);?></center></td>
 		<td><center><?php echo ucwords ($row->quantity);?></center></td>
-		<!--<td><center><?php echo ucwords ($row->delivery_remender); ?></center></td>
+		<td><center><?php echo ucwords ($row->delivery_remender); ?></center></td>
 		<td><center><?php echo ucwords ($row->delivery_now);?></center></td>
-		<td><center><?php echo ucwords ($row->tonase);?></center></td>-->
+		<td><center><?php echo ucwords ($row->tonase);?></center></td>
 		<td border="0"><center>
 			<a href="<?php echo site_url('ppic/jrp/edit_jrp/'.$row->id_jrp);?>"><span class="label label-default">Ubah</span></a>|<a href="#" onClick="if(confirm('Anda yakin akan menghapus data ini? ')){document.location='<?php echo site_url('ppic/jrp/hapus_jrp/'.$row->id_jrp);?>'}" ><span class="label label-primary">Hapus</span></a> </center>
 		</td>

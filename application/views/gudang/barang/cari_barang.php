@@ -25,7 +25,7 @@
 <div class="navbar navbar-default">
 	<div id="navbar" class="navbar-collapse collapse"> 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<?php echo site_url('distribusi/home');?>"><b>Home</b></a></li></b> 
+              <li class="active"><a href="<?php echo site_url('gudang/home');?>"><b>Home</b></a></li></b> 
             </ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class= "dropdown">

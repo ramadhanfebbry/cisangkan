@@ -46,9 +46,20 @@ public function inputplv($id_plv, $date_plv, $id_jrp, $id_kendaraan, $quantity_c
 	}*/
 	
 	function cek($id_plv){
+        // $this->db->select('*');    
+        $this->db->select('tb_jrp.*, tb_plv.*, tb_barang.*, tb_kategori.*');
+        $this->db->join('tb_jrp', 'tb_jrp.id_jrp = tb_plv.id_jrp');
+        $this->db->join('tb_barang', 'tb_jrp.id_barang = tb_barang.id_barang', 'left');
+        $this->db->join('tb_kategori', 'tb_barang.id_kategori = tb_kategori.id_kategori', 'left');
         $this->db->where('id_plv',$id_plv);
         $query=$this->db->get('tb_plv');
-        
+
+        // $query = $this->db->select('tb_jrp.*, tb_plv.*')
+        //       ->from('tb_plv')
+        //       ->join('tb_jrp', 'tb_jrp.id_jrp = tb_plv.id_jrp', 'inner')
+        //       ->where('tb_plv.id_plv', $id_plv)
+        //       ->get();
+
         return $query;
 	}
 
@@ -58,11 +69,18 @@ public function inputplv($id_plv, $date_plv, $id_jrp, $id_kendaraan, $quantity_c
 		}
 		
   function cari($cari){
-        $this->db->like('id_plv',$cari);
-		$this->db->or_like("delivery_name",$cari);
-		$this->db->or_like("delivery_city",$cari);
+
+  //       $this->db->like("id_plv",$cari);
+		// $this->db->or_like("date_plv",$cari);
+		// $this->db->or_like("id_jrp",$cari);
+  //   $this->db->or_like("id_kendaraan",$cari);
+  //   $this->db->or_like("quantity_confirm",$cari);
+  //   $this->db->or_like("delivery_remender",$cari);
 		
-        return $this->db->get('tb_plv');
+  //       return $this->db->get('tb_plv');
+
+    $query = $this->db->query("SELECT * FROM tb_plv a WHERE a.id_plv LIKE '$cari%' ORDER BY a.id_plv ASC ");
+return $query;
     }
 	
 }

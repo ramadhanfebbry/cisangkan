@@ -28,7 +28,7 @@
 	 <center><h2><b>SISTEM DISTRIBUSI BARANG<b></h2></center>
  </legend>
 <div class="nav navbar-nav navbar-right">
-    <form class="navbar-form navbar-left" role="search" action="<?php echo site_url('distribuusi/rdo/cari');?>" method="post">
+    <form class="navbar-form navbar-left" role="search" action="<?php echo site_url('distribusi/rdo/cari');?>" method="get">
         <div class="form-group">
            
             <input type="text" class="form-control" placeholder="Cari ID RDO " name="cari">

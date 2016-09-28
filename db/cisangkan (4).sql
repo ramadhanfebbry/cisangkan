@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id_barang`, `id_kategori`, `type`, `unit`, `warna`, `berat`, `warehouse`) VALUES
-('', 2, 'njnjanjan', 'pcs', 'mjnknkn', 'kkmkm', 'P-PGD GTG Warna-site'),
-('1', 3, 'fdf', 'pcs', 'fdg', '2', 'P-PGD GTG Warna-site');
+('1', 2, 'njnjanjan', 'pcs', 'mjnknkn', 'kkmkm', 'P-PGD GTG Warna-site'),
+('2', 3, 'fdf', 'pcs', 'fdg', '2', 'P-PGD GTG Warna-site');
 
 -- --------------------------------------------------------
 
@@ -97,16 +97,16 @@ CREATE TABLE IF NOT EXISTS `tb_jrp` (
 --
 
 INSERT INTO `tb_jrp` (`id_jrp`, `ship_date`, `sales_order`, `delivery_name`, `delivery_city`, `delivery_address`, `id_barang`, `type`, `warna`, `quantity`, `delivery_remender`, `quantity_confirm`, `tonase`) VALUES
-('Jrp-000001-160826', '2016-08-02', 'soja', 'mnk', 'jbkj', 'bj ', '78', '', '', '78', '', '', ''),
-('Jrp-00002-160827', '0000-00-00', 'soja', 'rosmana', 'jakrta', ' kmasaohd', 'gtg ', '', '', '89', '', '', ''),
-('Jrp-00009-160904', '2016-09-03', 'soba', 'uci', 'garut', ' jaln pembangkitan', '234', '', '', '12', '', '', ''),
-('Jrp-00010-160905', '2016-09-09', 'soba', 'ani', 'hay', 'fnjd', '89', '', '', '4', '', '', ''),
-('Jrp-00011-160905', '2016-09-08', 'soba', 'ulfah', 'garut', ' kadungira', '123', '', '', '57', '', '', ''),
-('Jrp-00012-160905', '2016-09-08', 'soja', 'Maulida', 'Jakarta', ' kota baru jalan otista no 28', '12mt', '', '', '23', '', '', ''),
-('Jrp-00013-160905', '2016-09-06', 'soba', 'nani', 'jatinangor', ' kalapa sawit', 'gtg 345', '', '', '12', '', '', ''),
-('Jrp-00014-160905', '2016-09-14', 'soba', 'lp', 'ko', ' fe', 'jh', '', '', '45', '', '', ''),
-('Jrp-00015-160905', '2016-08-17', 'soja', 'nk', 'jakrta', ' jnd', 'df', '', '', '56', '', '', ''),
-('Jrp-00016-160910', '2016-09-09', 'soja', 'jcf', 'cccvn', ' mc', 'cnm', '', '', '45', '', '', '');
+('Jrp-000001', '2016-08-02', 'soja', 'mnk', 'jbkj', 'bj ', '2', '', '', '78', '', '', ''),
+('Jrp-00002', '0000-00-00', 'soja', 'rosmana', 'jakrta', ' kmasaohd', 'gtg ', '', '', '89', '', '', ''),
+('Jrp-00009', '2016-09-03', 'soba', 'uci', 'garut', ' jaln pembangkitan', '234', '', '', '12', '', '', ''),
+('Jrp-00010', '2016-09-09', 'soba', 'ani', 'hay', 'fnjd', '89', '', '', '4', '', '', ''),
+('Jrp-00011', '2016-09-08', 'soba', 'ulfah', 'garut', ' kadungira', '123', '', '', '57', '', '', ''),
+('Jrp-00012', '2016-09-08', 'soja', 'Maulida', 'Jakarta', ' kota baru jalan otista no 28', '12mt', '', '', '23', '', '', ''),
+('Jrp-00013', '2016-09-06', 'soba', 'nani', 'jatinangor', ' kalapa sawit', 'gtg 345', '', '', '12', '', '', ''),
+('Jrp-00014', '2016-09-14', 'soba', 'lp', 'ko', ' fe', 'jh', '', '', '45', '', '', ''),
+('Jrp-00015', '2016-08-17', 'soja', 'nk', 'jakrta', ' jnd', 'df', '', '', '56', '', '', ''),
+('Jrp-00016', '2016-09-09', 'soja', 'jcf', 'cccvn', ' mc', 'cnm', '', '', '45', '', '', '');
 
 -- --------------------------------------------------------
 

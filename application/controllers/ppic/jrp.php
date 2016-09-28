@@ -46,7 +46,8 @@ class Jrp extends CI_Controller{
   }
   
    public function barang(){
-	$kode = $this->input->post('kode',TRUE); 
+	// $kode = $this->input->get('kode',TRUE); 
+  log_message('error', "parameters: ".$_GET['term']);
 		if(isset($_GET['term'])) {
 			$query = $this->m_jrp->get_all_barang($_GET['term']); 
 		if(count($query) > 0) {
@@ -70,27 +71,39 @@ class Jrp extends CI_Controller{
  public function tambah_jrp(){ 
   $this->_set_rules();
    if($this->form_validation->run() == TRUE){ 
-	$id_jrp = $this->input->post('id_jrp');
-	$ship_date = $this->input->post('ship_date');
-	$sales_order = $this->input->post('sales_order');
-	$delivery_name = $this->input->post('delivery_name');  
-	$delivery_city = $this->input->post('delivery_city');
-	$delivery_address = $this->input->post('delivery_address');
-	$id_barang = $this->input->post('id_barang');
-	$type = $this->input->post('type');
-	$warna = $this->input->post('warna');
-	$quantity = $this->input->post('quantity');
-	$delivery_remender = $this->input->post('delivery_remender');
-	$delivery_now = $this->input->post('delivery_now');
-	$tonase = $this->input->post('tonase');
-    $this->m_jrp->inputjrp($id_jrp, $ship_date, $sales_order, $delivery_name, $delivery_city, $delivery_address, $id_barang, $type, $warna, $quantity, $delivery_remender, $delivery_now, $tonase);
-	$data['id_jrp'] = $this->m_jrp->get_id_jrp();
-	$data['message']="<div class='alert alert-success'>Data Berhasil disimpan</div>";
-    $this->load->view('ppic/tambah_jrp',$data);}
+    	$id_jrp = $this->input->post('id_jrp');
+    	$ship_date = $this->input->post('ship_date');
+    	$sales_order = $this->input->post('sales_order');
+    	$delivery_name = $this->input->post('delivery_name');  
+    	$delivery_city = $this->input->post('delivery_city');
+    	$delivery_address = $this->input->post('delivery_address');
+    	$id_barang = $this->input->post('id_barang');
+    	$type = $this->input->post('type');
+    	$warna = $this->input->post('warna');
+    	$quantity = $this->input->post('quantity');
+    	$delivery_remender = $this->input->post('delivery_remender');
+    	$delivery_now = $this->input->post('delivery_now');
+    	$tonase = $this->input->post('tonase');
+      $this->m_jrp->inputjrp($id_jrp, $ship_date, $sales_order, $delivery_name, $delivery_city, $delivery_address, $id_barang, $type, $warna, $quantity, $delivery_remender, $delivery_now, $tonase);
+    	$data['id_jrp'] = $this->m_jrp->get_id_jrp();
+    	$data['message']="<div class='alert alert-success'>Data Berhasil disimpan</div>";
+      $this->load->view('ppic/tambah_jrp',$data);}
 	else{ 
-    $data['message']="";
-    $data['id_jrp'] = $this->m_jrp->get_id_jrp();
-    $this->load->view('ppic/tambah_jrp',$data);
+      $data['message']="";
+      $data['id_jrp'] = $this->m_jrp->get_id_jrp();
+      $data['ship_date'] = $this->input->post('ship_date');
+      $data['sales_order'] = $this->input->post('sales_order');
+      $data['delivery_name'] = $this->input->post('delivery_name');  
+      $data['delivery_city'] = $this->input->post('delivery_city');
+      $data['delivery_address'] = $this->input->post('delivery_address');
+      $data['id_barang'] = $this->input->post('id_barang');
+      $data['type'] = $this->input->post('type');
+      $data['warna'] = $this->input->post('warna');
+      $data['quantity'] = $this->input->post('quantity');
+      $data['delivery_remender'] = $this->input->post('delivery_remender');
+      $data['delivery_now'] = $this->input->post('delivery_now');
+      $data['tonase'] = $this->input->post('tonase');
+      $this->load->view('ppic/tambah_jrp',$data);
 	}
  } 
  

@@ -38,8 +38,8 @@
 		<div class="form-group">
         <label class="col-lg-2 control-label">Kode PLV</label>
         <div class="col-lg-3">
-           <!-- <input name="id_plv" type="text" value="<?php echo $plv->id_plv;?>" class="form-control" readonly > -->
-			<input name="id_plv"type="text"  class="form-control" value="<?php echo $tb_plv['id_plv'];?>" readonly>
+           
+			<input name="id_plv" type="text"  class="form-control" value="<?php echo $tb_plv['id_plv'];?>" readonly>
 	   </div>
 		</div>
 		
@@ -66,6 +66,13 @@
 			<input name="id_kendaraan" type="text"  class="form-control" value="<?php echo $tb_plv['id_kendaraan'];?>" readonly>
 	  </div>
 		</div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Quantity</label>
+        <div class="col-lg-3">      
+          <input name="quantity" type="text"  class="form-control" value="<?php echo $tb_plv['quantity'];?>" readonly>
+      </div>
+    </div>
 		
 		<!---<div class="form-group">
         <label class="col-lg-2 control-label">Quantity Confirm</label>

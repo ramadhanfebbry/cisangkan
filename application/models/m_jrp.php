@@ -12,7 +12,7 @@ class M_jrp extends CI_Model{
   $max_id = $row['max_id']; 
   $max_id1 =(int) substr($max_id,5);
   $id_jrp = $max_id1+1;
-  $maxkode_jrp= $kode.'-'.sprintf("%05s",$id_jrp).'-'.date(ymd);
+  $maxkode_jrp= $kode.'-'.sprintf("%05s",$id_jrp);
   return $maxkode_jrp;
  }
  public function getAlljrp($offset, $limit){
@@ -39,8 +39,9 @@ public function inputjrp($id_jrp, $ship_date, $sales_order, $delivery_name, $del
 }
   
  function get_all_barang($id_barang) {
-   $this->db->like('id_barang',$id_barang);
-   $query = $this->db->get('tb_genteng');
+   // $this->db->like('id_barang',$id_barang);
+   // $query = $this->db->get('tb_genteng');
+   $query = $this->db->query("SELECT * FROM tb_barang where id_barang LIKE '$id_barang%'");
    return $query->result();     
  }
  

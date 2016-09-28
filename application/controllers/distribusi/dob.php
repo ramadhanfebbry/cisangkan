@@ -110,21 +110,21 @@ class Dob extends CI_Controller{
   // redirect('distribusi/dob//do');
  // }
  
-   // function cari(){
-       // $cari=$this->input->post('cari');
-        // $cek=$this->m_jrp->cari($cari);
-        // if($cek->num_rows()>0){
-             // $data['message']="";
-             // $data['tb_jrp']=$cek->result();
-			 // $data['count'] = $this->m_jrp->getAlljrp_count(); 
-            // $this->load->view('ppic/cari_jrp',$data);
-        // }else{
-            // $data['message']="<div class='alert alert-danger'>Data tidak ditemukan</div>";
-			 // $data['tb_jrp']=$cek->result();
-			 // $data['count'] = $this->m_jrp->getAlljrp_count(); 
-            // $this->load->view('ppic/cari_jrp',$data);
-        // }
-    // }
+   function cari(){
+       $cari=$this->input->get('cari');
+        $cek=$this->m_dob->cari($cari);
+        if($cek->num_rows()>0){
+             $data['message']="";
+             $data['tb_do']=$cek;
+			       $data['count'] = $this->m_dob->getAlldo_count(); 
+              $this->load->view('distribusi/dob/tampil_dob',$data);
+        }else{
+            $data['message']="<div class='alert alert-danger'>Data tidak ditemukan</div>";
+			 $data['tb_jrp']=$cek;
+			 $data['count'] = $this->m_jrp->getAlljrp_count(); 
+            $this->load->view('dob/tampil_dob',$data);
+        }
+    }
  
  public function _set_rules(){
 	$this->form_validation->set_rules('id_plv','id_plv', 'required');
@@ -149,7 +149,7 @@ class Dob extends CI_Controller{
       $plvs   =  array();
       foreach ($query as $d) {
         $plvs[]     = array(
-                  'label' => $d->id_jrp."-".$d->ship_date."-".$d->sales_order."-".$d->delivery_name."-".$d->delivery_city."-".$d->delivery_address."-".$d->id_barang."-".$d->type."-".$d->warna."-".$d->quantity."-".$d->delivery_reminder."-".$d->quantity_confirm."-".$d->tonase,
+                  'd' => $d,
                   'value' => $d->id_jrp
               );      
       }

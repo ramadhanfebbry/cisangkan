@@ -56,6 +56,14 @@ function cek($id_kendaraan){
 		
         return $this->db->get('tb_kendaraan');
     }
+
+
+    function get_allKendaraan(){
+      $this->db->select('id_kendaraan');
+    $query = $this->db->get('tb_kendaraan');
+    return $query->result();         
+
+    }
 }
 
 

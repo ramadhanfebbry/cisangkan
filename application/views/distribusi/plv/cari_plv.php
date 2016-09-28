@@ -10,7 +10,6 @@
             <link href="<?php echo base_url('asset/css/plugins/morris/morris-0.4.3.min.css');?>" rel="stylesheet">
             <link href="<?php echo base_url('asset/css/plugins/timeline/timeline.css');?>" rel="stylesheet">
         
-            <script src="<?php echo base_url('aseet/js/jquery.alerts.js');?>"</script>
             <script src="<?php echo base_url('asset/js/jquery.js');?>"></script>
             <script src="<?php echo base_url('asset/js/bootstrap.js');?>"></script>
             <script src="<?php echo base_url('asset/js/tinymce/tinymce.min.js');?>"></script>

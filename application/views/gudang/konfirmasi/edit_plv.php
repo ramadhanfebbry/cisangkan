@@ -51,22 +51,48 @@
         <label class="col-lg-2 control-label">Kode JRP</label>
         <div class="col-lg-3">
 			<input name="id_jrp" type="text"  class="form-control" value="<?php echo $tb_plv['id_jrp'];?>" readonly> 
+      
 	   </div>
 		</div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Kode Barang</label>
+        <div class="col-lg-3">
+      <input type="text"  class="form-control" value="<?php echo $tb_plv['id_barang'];?>" readonly> 
+      
+     </div>
+     </div>
+
+<div class="form-group">
+        <label class="col-lg-2 control-label">Quantity</label>
+        <div class="col-lg-3">      
+          <input name="quantity" type="text"  class="form-control" value="<?php echo $tb_plv['quantity'];?>" readonly>
+      </div>
+    </div>
+
+     <div class="form-group">
+        <label class="col-lg-2 control-label">Jenis Barang</label>
+        <div class="col-lg-3">
+      <input type="text"  class="form-control" value="<?php echo $tb_plv['type'];?>" readonly>       
+     </div>
+    </div>
+
 		<div class="form-group">
         <label class="col-lg-2 control-label">Kode Car</label>
         <div class="col-lg-3">
 			<input name="id_kendaraan" type="text"  class="form-control" value="<?php echo $tb_plv['id_kendaraan'];?>"readonly > 
 	   </div>
 		</div>
+    
 		<div class="form-group">
         <label class="col-lg-2 control-label">Quantity Confirm</label>
         <div class="col-lg-3">
-			<input name="quantity_confirm" type="text" class="form-control" > 
+        
+			<input name="quantity_confirm" type="number" class="form-control" value="<?php echo $tb_plv['quantity_confirm'];?>"> 
 	   </div>
 		</div>
 		<div class="form-group">
-        <label class="col-lg-2 control-label">Delivery Remender </label>
+        <label class="col-lg-2 control-label">Delivery Reminder </label>
         <div class="col-lg-3">
 			<input name="delivery_remender" type="text" class="form-control"  > 
 	   </div>

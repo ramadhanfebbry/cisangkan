@@ -106,32 +106,36 @@ class Konfirmasi extends CI_Controller{
 			$data['message']="<div class='alert alert-success'>Data Berhasil diupdate</div>";
             $data['tb_plv']=$this->m_plv->cek($id)->row_array();
             $this->load->view('gudang/konfirmasi/edit_plv',$data);
-        }else{
+        }else{            
+
             $data['tb_plv']=$this->m_plv->cek($id)->row_array();
-			$data['message']="";
+           // error_log( print_R($data,TRUE) );
+ 
+			     $data['message']="";
             $this->load->view('gudang/konfirmasi/edit_plv',$data);
         }
     }
  
  
-  /* function cari(){
-       $cari=$this->input->post('cari');
+   function cari(){
+       $cari=$this->input->get('cari');
         $cek=$this->m_plv->cari($cari);
         if($cek->num_rows()>0){
              $data['message']="";
-             $data['tb_plv']=$cek->result();
-			 $data['count'] = $this->m_plv->getAllplv_count(); 
-            $this->load->view('gudang/cari_plv',$data);
+             $data['tb_plv']=$cek;
+			 $data['total_rows'] = $this->m_plv->getAllplv_count(); 
+            $this->load->view('gudang/konfirmasi/tampil_plv',$data);
         }else{
             $data['message']="<div class='alert alert-danger'>Data tidak ditemukan</div>";
-			 $data['tb_plv']=$cek->result();
-			 $data['count'] = $this->m_plv->getAllplv_count(); 
-            $this->load->view('gudang/konfirmasi/cari_plv',$data);
+			 $data['tb_plv']=$cek;
+			 $data['total_rows'] = $this->m_plv->getAllplv_count(); 
+            $this->load->view('gudang/konfirmasi/tampil_plv',$data);
         }
-    }*/
+    }
  
  public function _set_rules(){
 	$this->form_validation->set_rules('id_jrp','id_jrp', 'required');
+  $this->form_validation->set_rules('quantity_confirm','quantity_confirm', 'required');
 	$this->form_validation->set_rules('id_kendaraan','id_kendaraan', 'required');
 	$this->form_validation->set_error_delimiters("<div class='alert alert-danger'>","</div>");
  }

@@ -37,7 +37,7 @@
 	 <center><h1><b>SISTEM DISTRIBUSI BARANG<b><h1></center>
    </legend><br>
 <div class="nav navbar-nav navbar-right">
-    <form class="navbar-form navbar-left" role="search" action="<?php echo site_url('gudang/barang/cari');?>" method="post">
+    <form class="navbar-form navbar-left" role="search" action="<?php echo site_url('gudang/barang/cari');?>" method="get">
         <div class="form-group">
            
             <input type="text" class="form-control" placeholder="Cari ID Barang " name="cari">
@@ -76,8 +76,8 @@
 
       $c = $ci->m_barang->get_id_barang(ucwords($row->id_barang));
 
-      echo $c;
-    // echo ucwords($row->id_barang); 
+      // echo $c;
+    echo ucwords($row->id_barang); 
 
     ?></td>
 		<td><?php echo ucwords($row->nm_kategori); ?></td>

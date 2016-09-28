@@ -118,15 +118,17 @@ public function hapus_barang($id_barang){
  }
 
 public function cari($cari){
-$this->db->select('*');
-$this->db->from('tb_barang');
-$this->db->like('tb_barang.id_barang',$cari);
-$this->db->or_like('tb_barang.type',$cari);
-$this->db->or_like('tb_kategori.id_kategori',$cari);
-$this->db->or_like('tb_kategori.nm_kategori',$cari);
-$this->db->join('tb_kategori','tb_barang.id_kategori = tb_kategori.id_kategori');
-$query = $this->db->get();
-return $query;
+// $this->db->select('*');
+// $this->db->from('tb_barang');
+// $this->db->like('tb_barang.id_barang',$cari);
+// $this->db->or_like('tb_barang.type',$cari);
+// $this->db->or_like('tb_kategori.id_kategori',$cari);
+// $this->db->or_like('tb_kategori.nm_kategori',$cari);
+// $this->db->join('tb_kategori','tb_barang.id_kategori = tb_kategori.id_kategori');
+// $query = $this->db->get();
+
+$query = $this->db->query("SELECT * FROM tb_barang a INNER JOIN tb_kategori b ON a.id_kategori = b.id_kategori WHERE a.id_barang LIKE '$cari%' OR a.type LIKE '$cari%' OR a.unit LIKE '$cari%' OR b.nm_kategori LIKE '$cari%' ORDER BY a.id_barang ASC ");
+return $query->result();
 }
 
   public function get_allTypeBarang($id_kategori) {
